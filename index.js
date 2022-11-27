@@ -95,22 +95,59 @@ console.log ('FINACIAL ANALYSIS');
 
 console.log('---------------------------------');
 
-console.log (`Total number of months:  ${finances.length}`);
+//The total number of months included in the dataset.
 
+var TimePeriod = finances.length
+console.log (`Total number of months:  ${TimePeriod}`);
+
+//The net total amount of Profit/Losses over the entire period.
 
 sum = 0;
-
- for ( i = 0; i < finances.length; i++){
-sum +=(finances[i][1]);}
-
+for ( i = 0; i < TimePeriod; i++){
+sum += (finances[i][1]);};
 console.log(`Net Total Profits/Losses: ${sum}`); 
 
+//The average of the changes in Profit/Losses over the entire period.
+//calculating the individual changes in the month and put them in a "newArr":
 
-console.log (`Average Change:  ${finances.length}`)
+var newArr=[];
+for ( i = 0; i < finances.length; i++){
+newArr.push(finances[i][1])};
 
-for (var main_index = 0; main_index < finances.length; main_index++ ) {
-    for(var nested_index = 0; nested_index < finances[main_index].length; nested_index++) {
-      console.log(finances[main_index][nested_index]);
-    }
-  }
+ // To get the individual differences, sum them into an array "AvrgTotalArr": 
+
+function getDiff(a, b){
+if (a > 0 && b > 0) {return (a-b);}
+else if (a < 0 && b < 0){return (a + b);}
+else if (a > 0 && b < 0 ){return (a + b);}
+else {return (a+b);}
+ };
+
+AvrgTotalArr = []
+for (i = 0; i<TimePeriod; i++){
+AvrgTotalArr.push ( getDiff (newArr[i++],newArr[i] ))
+};
+// To get total diffferences in the new array: 
+AvrgSum = 0
+for (i = 0; i < AvrgTotalArr.length; i++){
+    AvrgSum += (AvrgTotalArr[i])
+};
+
+AverageTotal = AvrgSum/AvrgTotalArr.length
+
+console.log (`Average Total change accross all months: ${AverageTotal}` );
+
+//The greatest increase in profits (date and amount) over the entire period
+
+
+//The greatest decrease in losses (date and amount) over the entire period.
+
+
+
+
+// for (var main_index = 0; main_index < financesances.length; main_index++ ) {
+//     for(var nested_index = 0; nested_index < finances[main_index].length; nested_index++) {
+//       console.log(finances[main_index][nested_index]);
+//     }
+//   }
 
