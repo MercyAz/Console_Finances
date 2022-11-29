@@ -138,16 +138,23 @@ AverageTotal = AvrgSum/AvrgTotalArr.length
 console.log (`Average Total change accross all months: ${AverageTotal}` );
 
 //The greatest increase in profits (date and amount) over the entire period
+const arr = (newArr);
+
+const maxx = Math.max(...arr);
+
+console.log(maxx);
+
+High = finances.find(checkHighest)
+function checkHighest(High) {
+  return High === 1170593; finances.find(checkHighest);
+}
+console.log (`The greatest increase in profits: ${High}`)
+// //The greatest decrease in losses (date and amount) over the entire period.
 
 
-//The greatest decrease in losses (date and amount) over the entire period.
+const min = Math.min(...arr);
 
+console.log(min)
 
-
-
-// for (var main_index = 0; main_index < financesances.length; main_index++ ) {
-//     for(var nested_index = 0; nested_index < finances[main_index].length; nested_index++) {
-//       console.log(finances[main_index][nested_index]);
-//     }
-//   }
-
+// const max = Math.max(...arr)
+// console.log(max)
